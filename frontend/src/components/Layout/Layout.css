@@ -1,0 +1,281 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: none;
+}
+
+.sidebar-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-item-active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-left-color: #feca57;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-email {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.logout-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: white;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e1e8ed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: #667eea;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #f8f9fa;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  flex: 1;
+  text-align: center;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-user .user-avatar {
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.header-user .user-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .sidebar {
+    position: relative;
+    transform: translateX(0);
+  }
+  
+  .sidebar-close {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 280px;
+  }
+  
+  .header-title {
+    text-align: left;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .sidebar-close {
+    display: block;
+  }
+  
+  .sidebar-overlay {
+    display: block;
+  }
+  
+  .header-user .user-name {
+    display: none;
+  }
+  
+  .page-content {
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 12px 15px;
+  }
+  
+  .header-title {
+    font-size: 20px;
+  }
+} 
